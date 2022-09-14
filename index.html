@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="서울과학기술대학교 웹인터페이스디자인2 1주차 과제입니다.">
+    <meta name="author" content="Seong Kim">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="reset.css">
+
+	<style>
+
+		section {cursor: url('img/bread.png'), auto;}
+		html {
+			text-align: center;
+			font-size: 16px;
+		}
+
+		h1 {
+			margin-top: 3rem;
+			font-size: 2rem;
+		}
+
+		section {
+			padding: 3rem;
+		}
+
+		.background {
+			margin: auto;
+			width: 80rem;
+			height: 45rem;
+			background-image: url( "img/park.jpg" );
+			background-size: cover;
+			display: flex;
+			flex-wrap: nowrap;
+			align-items: flex-end;
+			justify-content: space-evenly;
+		}
+
+		.pigeon {
+			width: 15rem;
+			height : auto;
+		}
+
+		button {
+			background-color: black;
+			border: none;
+			color: white;
+			padding: 1rem 2rem;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 1.2rem;
+			margin: 4px 2px;
+}
+		p {
+			font-size: 32px;
+		}
+
+		footer {
+			padding: 3rem;
+		}
+	</style>
+
+
+	<title>park</title>
+
+</head>
+
+<body>
+	<h1>
+		Pigeons In The Park
+	</h1>
+
+	<section>
+		<div class="background">
+			<img class="pigeon" id="bird1" alt="white pigeon" src="img/1.png"> </img>
+			<img class="pigeon" id="bird2" alt="white pigeon" src="img/2.png"> </img>
+			<img class="pigeon" id="bird4" alt="white pigeon" src="img/4.png"> </img>
+		</div>
+	</section>
+
+		<section style="padding: 0.6rem">
+		<input id="vol2" type="range" max="100" min="0" value="100">
+	</section>
+	<section style="padding: 0.6rem">
+		<button id="sing">sing</button>
+		<audio id="sound" src="sound/bgm.mp3"></audio>
+		<button id="stop">no sing</button>
+	</section>
+
+	<footer>
+		<div class="copyright">
+			2022 서울과학기술대학교 디자인학부 김성은
+		</div>
+	</footer>
+
+
+	<script type="text/javascript">
+
+		// 소리 //
+		vol2.value = 100
+		vol2.oninput = function(){
+			sing.volume = vol2.value / 100;
+		}
+		sing.onclick = function(){
+			sound.play();
+		}
+		stop.onclick = function(){
+			sound.pause();
+		}
+		
+		// 비둘기들 //
+		
+		var state = false;
+		bird1.onclick = function(){
+			if(!state){bird1.src = "img/1-1.png";
+			state = true;
+		}else{bird1.src = "img/1-2.png";}
+		}
+
+		bird2.onclick = function(){
+			if(!state){bird2.src = "img/2-1.png";
+			state = true;
+		}else{bird2.src = "img/2-2.png";}
+		}
+
+		bird4.onclick = function(){
+			if(!state){bird4.src = "img/4-1.png";
+			state = true;
+		}else{bird4.src = "img/4-2.png";}
+		}
+
+
+	</script>
+
+</body>
+</html>
